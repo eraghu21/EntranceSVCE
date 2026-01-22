@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import random
 
-API = "YOUR_EXEC_URL_HERE"
+API = "https://script.google.com/a/macros/svce.ac.in/s/AKfycby6z48bgJxUfTLRoqv-4vbGUUa8WRb9TgAj0TniGN33ntvFNQ2SgmEoFgGn2zfKoNGWgg/exec"
 EXAM_DURATION = 10*60  # 10 minutes
 
 st.set_page_config(page_title="Entrance Exam", layout="wide")
@@ -37,6 +37,7 @@ if st.session_state.page == "login":
                 "app_no": app_no,
                 "password": password
             }).json()
+          
             if res.get("status") == "success":
                 st.session_state.user = res
                 st.session_state.page = "instructions" if not res.get("is_admin") else "admin"
